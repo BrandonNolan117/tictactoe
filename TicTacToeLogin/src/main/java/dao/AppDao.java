@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -8,6 +9,29 @@ import beans.User;
 
 public class AppDao {
 
+	
+	public void createTable() {
+		try {
+			Connection connection = DBConnection.getConnectionToDatabase();
+			
+			//If the there is no user table in the database, create it.
+		    String createTable = "CREATE TABLE IF NOT EXISTS user( "
+		            + " student_number CHAR(15) NOT NULL PRIMARY KEY,"
+		            + " first_name VARCHAR(50) NOT NULL,"
+		            + " last_name VARCHAR(50) NOT NULL,"
+		            + " pass_word VARCHAR(20) NOT NULL,"
+		            + " teacher VARCHAR(15) NOT NULL);";
+
+		    PreparedStatement prepState = connection.prepareStatement(createTable);
+		    prepState.execute();
+		    
+		    
+			} catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	
+	
 	public int registerUser(User user) {
 
 		int rowsAffected = 0;
@@ -15,7 +39,7 @@ public class AppDao {
 		try {
 
 			Connection connection = DBConnection.getConnectionToDatabase();
-
+			
 			String insertQuery = "insert into user values(?, ?, ?, ?, ?)";
 			java.sql.PreparedStatement statement = connection.prepareStatement(insertQuery);
 
@@ -26,7 +50,19 @@ public class AppDao {
 			statement.setString(5, user.getTeacherName());
 
 			rowsAffected = statement.executeUpdate();
+			
+			//Added this to create a row in the score table whenever a user is registered
+			String insertQuery2 = "insert into score values(?, ?, ?)";
+			java.sql.PreparedStatement scoreStatement = connection.prepareStatement(insertQuery2);
+			
+			scoreStatement.setInt(1, user.getStudentNumber());
+			scoreStatement.setInt(2, 0);
+			scoreStatement.setString(3,  user.getTeacherName());
+			
+			scoreStatement.executeUpdate();
+			
 			statement.close();
+			scoreStatement.close();
 			connection.close();
 
 		} catch (SQLException e) {

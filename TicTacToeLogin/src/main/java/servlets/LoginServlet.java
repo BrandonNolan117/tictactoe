@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import beans.User;
 import dao.AppDao;
+import dao.ScoreDao;
 
 /*
  * TODO: number validation
@@ -97,7 +98,7 @@ public class LoginServlet extends HttpServlet {
 		// Register User and show Registration Confirmation page
 		else if ("Complete Registration".equals(action)) {
 
-			// TODO: Implement form validation to ensure user is recoreded in database
+			// TODO: Implement form validation to ensure user is recorded in database
 			// successfully or an error is shown
 
 			// Create the User object to be inserted to DB
@@ -105,6 +106,10 @@ public class LoginServlet extends HttpServlet {
 
 			// Register user by adding user to database
 			AppDao query = new AppDao();
+			ScoreDao score = new ScoreDao();
+			query.createTable();
+			score.createTable();
+			
 			int rowsAffected = query.registerUser(user);
 
 			if (rowsAffected > 0) {
