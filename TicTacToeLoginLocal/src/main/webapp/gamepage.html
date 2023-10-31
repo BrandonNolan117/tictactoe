@@ -1,14 +1,59 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en-US">
 <head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MindFunness Gamepage</title>
+<link href="css/singlePageTemplate.css" rel="stylesheet" type="text/css">
+
+<script>var __adobewebfontsappname__="dreamweaver"</script>
+<script src="http://use.edgefonts.net/source-sans-pro:n2:default.js" type="text/javascript"></script>
+
 </head>
 <body>
-	<p>Welcome to the Games Page!</p>
-	<br><br>
-	<a href ='http://localhost:8080/TicTacToeLoginLocal/tictactoeservlet'>Play Tic Tac Toe<br></a>
-	<a href ='http://localhost:8080/TicTacToeLoginLocal/loginservlet'>Back to Login</a>
-	<a href ='http://localhost:8080/TicTacToeLoginLocal/scoreservlet'><br>Scoreboard</a>
+<!-- Main Container -->
+<div class="container"> 
+  <!-- Navigation -->
+  <header> <a href="">
+    <h4 class="logo">&nbsp;</h4>
+    </a>
+    <nav>
+      <ul>
+        <li><a href ='http://localhost:8080/TicTacToeLoginLocal/scoreservlet'>SCOREBOARD</a></li>
+        <li> <a href ='http://localhost:8080/TicTacToeLoginLocal/loginservlet'>BACK TO LOGIN</a></li>
+      </ul>
+    </nav>
+  </header>
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <h2 class="hero_header">MindFunness</h2>
+    <p class="tagline">Keeping kids' minds engaged!</p>
+  </section>
+
+  <!-- Game Section -->
+  <footer>
+    <article class="footer_column">
+      <h3>TIC TAC TOE</h3>
+		<a href ='http://localhost:8080/TicTacToeLoginLocal/tictactoeservlet'>
+      <img src="images/tictactoe.jpg" alt="" width="400" height="200" class="cards"/>
+		</a>
+      <p>This classic paper-and-pencil, two player game has gone digital! Tic-Tac-Toe&nbsp; encourages strategic thinking, problem-solving and can be completed many times with many different game paths and iterations.&nbsp; &nbsp; &nbsp; &nbsp; </p>
+    </article>
+    <article class="footer_column">
+      <h3>OTHER GAME HERE</h3>
+      <img src="images/placeholder.jpg" alt="" width="400" height="200" class="cards"/>
+      <p>Stay tuned for our next educational game here!&nbsp; &nbsp; </p>
+    </article>
+  </footer>
+  <!-- Footer Section -->
+  <section class="footer_banner" id="contact">
+    <h2 class="hidden">Footer Banner Section </h2>
+    <p class="hero_header">STAY TUNED FOR MORE EXCITING GAMES!</p>
+  </section>
+  <!-- Copyrights Section -->
+  <div class="copyright"> <strong>&nbsp;</strong></div>
+</div>
+<!-- Main Container Ends -->
 </body>
 </html>
