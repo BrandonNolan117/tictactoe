@@ -15,7 +15,7 @@ public class DatabaseSetup {
 	private static void createUserTable() {
 		String createTable = "CREATE TABLE IF NOT EXISTS user( " + " student_number CHAR(15) NOT NULL PRIMARY KEY,"
 				+ " first_name VARCHAR(50) NOT NULL," + " last_name VARCHAR(50) NOT NULL,"
-				+ " pass_word VARCHAR(20) NOT NULL," + " teacher VARCHAR(15) NOT NULL);";
+				+ " pass_word VARCHAR(70) NOT NULL," + " teacher VARCHAR(15) NOT NULL);";
 		try (Connection connection = DBConnection.getConnectionToDatabase();
 				PreparedStatement preparedStatement = connection.prepareStatement(createTable);) {
 			preparedStatement.execute();
