@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import beans.Game;
 import beans.User;
 import dao.UserDao;
+import multithreading.ScoreExecutorService;
 import dao.ScoreDao;
 import dao.TicTacToeDao;
 
@@ -67,7 +68,12 @@ public class TicTacToeServlet extends HttpServlet {
 			TicTacToeDao student = new TicTacToeDao();
 			Boolean studentFound = student.verify(studentNumber);
 			if (studentFound) {
-				student.addScore(studentNumber);
+
+				// Multithreading for submitting scores
+				ScoreExecutorService scoreExecutorService = new ScoreExecutorService();
+				scoreExecutorService.enqueue(student, studentNumber);
+				scoreExecutorService.shutdown();
+
 				response.sendRedirect(request.getContextPath() + SCORE_PAGE_URL);
 			} else {
 				response.sendRedirect(request.getContextPath() + "/tictactoeservlet");
