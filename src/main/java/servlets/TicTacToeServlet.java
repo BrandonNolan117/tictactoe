@@ -38,14 +38,11 @@ public class TicTacToeServlet extends HttpServlet {
 		// teacher based on user currently logged in
 		if (action == null) {
 
-			writer.write(writeTicTacToeGame() + "<br>");
-
+			request.getRequestDispatcher(GAME_PAGE_URL).forward(request, response);
 			if (errorMessage != null) {
 				writer.write("<br>" + errorMessage);
 			}
 
-			// TODO: Returns to gamepage.html/main menu
-			writer.write("<a href='" + request.getContextPath() + MAIN_MENU_URL + "'>Return to main menu</a>");
 		}
 
 	}
@@ -60,9 +57,7 @@ public class TicTacToeServlet extends HttpServlet {
 		if ("Submit".equals(action))
 			;
 		{
-			// create score table if not exist
-			ScoreDao score = new ScoreDao();
-			score.createTable();
+
 
 			TicTacToeDao student = new TicTacToeDao();
 			Boolean studentFound = student.verify(studentNumber);

@@ -23,6 +23,9 @@ import dao.DatabaseSetup;
 public class LoginServlet extends HttpServlet {
 
 	public static final String GAME_PAGE_URL = "/gamepage.html";
+	public static final String LOGIN_PAGE_URL = "/loginpage.html";
+	public static final String REGISTER_PAGE_URL = "/registerpage.html";
+	public static final String REGISTERED_PAGE_URL = "/registeredpage.html";
 
 	private static final long serialVersionUID = 1L;
 
@@ -47,16 +50,13 @@ public class LoginServlet extends HttpServlet {
 
 		// This should execute upon initial visit to page
 		if (action == null) {
-			writer.write(writePageHead());
-			writer.write(writeLoginForm() + "<br>");
-			writer.write("<a href='" + request.getContextPath()
-					+ "/loginservlet?action=register'>Don't have an account? Click here to register</a>");
+			request.getRequestDispatcher(LOGIN_PAGE_URL).forward(request, response);
 		}
 
 		// TODO: Remove?
 		else if ("Login".equals(action)) {
-			writer.write(writePageHead());
-			writer.write(writeLoginForm());
+			request.getRequestDispatcher(LOGIN_PAGE_URL).forward(request, response);
+			
 			if (errorMessage != null) {
 				writer.write("<br>" + errorMessage);
 			}
@@ -64,18 +64,14 @@ public class LoginServlet extends HttpServlet {
 
 		// If "Register" was clicked, show user the registration form
 		else if ("Register".toLowerCase().equals(action)) {
-			writer.write(writePageHead());
-			writer.write(writeRegisterForm());
+			request.getRequestDispatcher(REGISTER_PAGE_URL).forward(request, response);
 
 		}
 
 		// If user successfully registered, show confirmation message with link
 		// to the main page or the games page
 		else if ("registered".equals(action)) {
-			writer.write(writePageHead());
-			writer.write("<!doctype html><html><title>Login</title>" + "<body><h1>"
-					+ "Thank you for registering</h1><br><br>" + "<a href='" + request.getContextPath() + GAME_PAGE_URL
-					+ "'>Click here to proceed to the games page</a>\n" + "</body></html>");
+			request.getRequestDispatcher(REGISTERED_PAGE_URL).forward(request, response);
 		}
 	}
 
@@ -132,41 +128,4 @@ public class LoginServlet extends HttpServlet {
 		}
 	}
 
-	// methods to write the html
-	public String writePageHead() {
-		String head = "<!doctype html>\r\n" + "<html lang=\"en-US\">\r\n" + "<head>\r\n"
-				+ "<meta charset=\"utf-8\">\r\n" + "<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\r\n"
-				+ "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\r\n"
-				+ "<title>MindFunness Login</title>\r\n"
-				+ "<link href=\"css/singlePageTemplate.css\" rel=\"stylesheet\" type=\"text/css\">\r\n" + "\r\n"
-				+ "<script>var __adobewebfontsappname__=\"dreamweaver\"</script>\r\n"
-				+ "<script src=\"http://use.edgefonts.net/source-sans-pro:n2:default.js\" type=\"text/javascript\"></script>\r\n"
-				+ "\r\n" + "</head>";
-		return head;
-	}
-
-	public String writeLoginForm() {
-		String form = "<body><h1>Welcome to MindFunness</h1><h2>Please log in to continue</h2>"
-				+ "<form method='post' action='loginservlet'"
-				+ "<table><tr><td><label>Student Number </label><input type='number' name='studentNumber' required='required'</td></tr><br><br>"
-				+ "<tr><td><label for='password'>Password </label> <input type='password' id='password' name='password' required='required'</td></tr><br><br>"
-				+ "<tr><td><input type='submit' name='action' value='Login'</td></tr>" + "</table></form>"
-
-				+ "</body></html>";
-		return form;
-	}
-
-	public String writeRegisterForm() {
-		String form = "<br><br><form method='post' action='loginservlet'"
-				+ "<table><tr><td><label>Student Number </label><input type='text' name='studentNumber' required='required'</td></tr><br><br>"
-				+ "<tr><td><label>First Name </label> <input type='text' name='firstName' required='required'</td></tr><br><br>"
-				+ "<tr><td><label>Last Name </label> <input type='text' name='lastName' required='required'</td></tr><br><br>"
-				+ "<tr><td><label>Password </label> <input type='password' name='password' required='required'</td></tr><br><br>"
-				+ "<tr><td><label for='teacher'>Choose your teacher </label><select name='teacher'><br><br>"
-				+ "<option value='Mrs A'>Mrs. A</option>" + "<option value='Mr B'>Mr. B</option>"
-				+ "<option value='Ms C'>Ms. C</option>" + "<option value='Mrs D'>Mrs. D</option></select><br><br>"
-				+ "<tr><td><input type='submit' name='action' value='Complete Registration'</td></tr>"
-				+ "</table></form></body></html>";
-		return form;
-	}
 }

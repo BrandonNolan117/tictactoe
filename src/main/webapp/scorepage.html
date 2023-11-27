@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MindFunness Gamepage</title>
+<title>MindFunness Scorepage</title>
 <link href="css/singlePageTemplate.css" rel="stylesheet" type="text/css">
 
 <script>var __adobewebfontsappname__="dreamweaver"</script>
@@ -32,37 +32,41 @@
   </section>
 	
 	<!-- Scoreboard Section -->
-<section class="about" id="about">
-		
-    <h1>Select Your Teacher Below</h1>
-		<form method = 'post' action='scoreservlet' class=text_column>	
-			<table>
-				<tr>
-					<td>
-						<label for = 'teacher'>Choose your teacher </label>
-						<select name='teacher' id='teacher'><br><br>
-							<option value='Mrs A'>Mrs. A</option>
-							<option value='Mr B'>Mr. B</option>
-							<option value='Ms C'>Ms. C</option>
-							<option value='Mrs D'>Mrs. D</option>
-							</select><br><br>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<input type='submit' name='action' value='Score'>
-					</td>
-				</tr>
-			</table>
-		</form>
-		<br><br>
-	
-  </section>
-	
+	<footer>
+		<article class="footer_single">
+			<h3>Select Your Teacher Below</h3>
+			<section class="footer_single" id="about">
+				
+		    
+				<form method = 'post' action='scoreservlet' class="text_column">	
+					<table>
+						<tr>
+							<td>
+								<label for = 'teacher'>Choose your teacher </label>
+								<select name='teacher' id='teacher'><br><br>
+									<option value='Mrs A'>Mrs. A</option>
+									<option value='Mr B'>Mr. B</option>
+									<option value='Ms C'>Ms. C</option>
+									<option value='Mrs D'>Mrs. D</option>
+									</select><br><br>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<input type='submit' name='action' value='Score'>
+							</td>
+						</tr>
+					</table>
+				</form>
+				<br><br>
+			
+		  </section>
+		</article>
+	</footer>
   <!-- Footer Section -->
   <section class="footer_banner" id="contact">
     <h2 class="hidden">Footer Banner Section </h2>
-    <p class="hero_header">Thank you for playing! Stay tuned for more exciting games!</p>
+    <p class="foot_header">Thank you for playing! Stay tuned for more exciting games!</p>
   </section>
   <!-- Copyrights Section -->
   <div class="copyright"> <strong>&nbsp;</strong></div>

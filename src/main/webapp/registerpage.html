@@ -18,12 +18,6 @@
   <header> <a href="">
     <h4 class="logo">&nbsp;</h4>
     </a>
-    <nav>
-      <ul>
-        <li><a href ='http://localhost:8080/MindFunness/scoreservlet'>SCOREBOARD</a></li>
-        <li> <a href ='http://localhost:8080/MindFunness/loginservlet'>BACK TO LOGIN</a></li>
-      </ul>
-    </nav>
   </header>
   <!-- Hero Section -->
   <section class="hero" id="hero">
@@ -31,20 +25,52 @@
     <p class="tagline">Keeping kids' minds engaged!</p>
   </section>
 
-  <!-- Game Section -->
+  <!-- Login Section -->
   <footer>
-    <article class="footer_column">
-      <h3>TIC TAC TOE</h3>
-		<a href ='http://localhost:8080/MindFunness/tictactoeservlet'>
-      <img src="images/tictactoe.jpg" alt="" width="400" height="200" class="cards"/>
-		</a>
-      <p>This classic paper-and-pencil, two player game has gone digital! Tic-Tac-Toe&nbsp; encourages strategic thinking, problem-solving and can be completed many times with many different game paths and iterations.&nbsp; &nbsp; &nbsp; &nbsp; </p>
+    <article class="footer_single">
+      <h3>Register</h3>
+      <form method='post' action='loginservlet'>
+		  <table>
+			  <tr>
+			    <td><label>Student Number </label>
+				  <input type='number' name='studentNumber' required='required'>
+				  </td>
+			  </tr>
+			  <tr>
+				<td>
+				<label>First Name </label> <input type='text' name='firstName' required='required'>
+				</td>
+			  </tr>
+			  <tr>
+				<td>
+				<label>Last Name </label> <input type='text' name='lastName' required='required'>
+				</td>
+			  </tr>
+			  <tr>
+				<td>
+				<label>Password </label> <input type='password' name='password' required='required'>
+				</td>
+			  </tr>
+				<tr>
+					<td><label for='teacher'>Choose your teacher </label>
+						<select name='teacher'><br><br>
+						<option value='Mrs A'>Mrs. A</option>
+						<option value='Mr B'>Mr. B</option>
+						<option value='Ms C'>Ms. C</option>
+						<option value='Mrs D'>Mrs. D</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type='submit' name='action' value='Complete Registration'>
+					</td>
+				</tr>
+			</table>
+		</form>
+      
     </article>
-    <article class="footer_column">
-      <h3>OTHER GAME HERE</h3>
-      <img src="images/placeholder.jpg" alt="" width="400" height="200" class="cards"/>
-      <p>Stay tuned for our next educational game here!&nbsp; &nbsp; </p>
-    </article>
+    
   </footer>
   <!-- Footer Section -->
   <section class="footer_banner" id="contact">

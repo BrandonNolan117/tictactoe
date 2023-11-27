@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MindFunness Login</title>
+<title>MindFunness Gamepage</title>
 <link href="css/singlePageTemplate.css" rel="stylesheet" type="text/css">
 
 <script>var __adobewebfontsappname__="dreamweaver"</script>
@@ -18,27 +18,46 @@
   <header> <a href="">
     <h4 class="logo">&nbsp;</h4>
     </a>
-    <nav>
-      <ul>
-      </ul>
-    </nav>
   </header>
   <!-- Hero Section -->
   <section class="hero" id="hero">
     <h2 class="hero_header">MindFunness</h2>
     <p class="tagline">Keeping kids' minds engaged!</p>
   </section>
-	
-	  <!-- Login Section -->
-<section class="about" id="about">
-    <h2 class="hidden">About</h2>
-    <p class="text_column"><a href="http://localhost:8080/MindFunness/loginservlet">CLICK HERE To Log In</a></p>
-  </section>
 
+  <!-- Login Section -->
+  <footer>
+    <article class="footer_single">
+      <h3>Please log in to continue</h3>
+      <form method='post' action='loginservlet'>
+		  <table>
+			  <tr>
+				  <td><label>Student Number </label>
+				  <input type='number' name='studentNumber' required='required'>
+				  </td>
+			  </tr>
+			  
+			  <tr>
+				<td><label for='password'>Password </label> <input type='password' id='password' name='password' required='required'></td>
+				</tr>
+				
+				<tr>
+					<td>
+						<input type='submit' name='action' value='Login'>
+					</td>
+				</tr>
+			</table>
+		</form>
+		<br><br>
+      <a href='http://localhost:8080/MindFunness/loginservlet?action=register'>Don't have an account? Click here to register</a>
+      
+    </article>
+    
+  </footer>
   <!-- Footer Section -->
   <section class="footer_banner" id="contact">
     <h2 class="hidden">Footer Banner Section </h2>
-    <p class="foot_header">Thank you for playing! Stay tuned for more exciting games!</p>
+    <p class="foot_header">STAY TUNED FOR MORE EXCITING GAMES!</p>
   </section>
   <!-- Copyrights Section -->
   <div class="copyright"> <strong>&nbsp;</strong></div>
